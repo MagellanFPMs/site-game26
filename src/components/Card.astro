@@ -6,29 +6,32 @@ interface Props {
   title: string;
   description: string;
   image?: ImageMetadata | undefined;
+  background?: ImageMetadata | undefined;
   link: string;
 }
 
-const { title, description, image, link } = Astro.props;
+const { title, description, image, link, background } = Astro.props;
 ---
 
 <div class="rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 p-1">
   <div
-    class="flex h-full flex-col justify-between gap-4 rounded-lg bg-indigo-950 p-4 duration-150"
+    class="relative flex h-full flex-col justify-between gap-4 rounded-lg bg-indigo-950 p-4 duration-150"
   >
-    <Image
-      class="h-48 w-full rounded-lg object-contain"
-      src={image ? image : Unknown_Image}
-      alt={title}
-      format="webp"
-    />
-    <div>
+    <div class="z-10 flex justify-center">
+      <Image
+        class="h-48 w-full max-w-[50%] rounded-lg object-contain"
+        src={image ? image : Unknown_Image}
+        alt={title}
+        format="webp"
+      />
+    </div>
+    <div class="z-10">
       <h3 class="pb-2 text-2xl font-semibold">{title}</h3>
-      <p class="text-balance">
+      <p>
         {description}
       </p>
     </div>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="z-10 grid grid-cols-2 gap-4">
       <a
         href={link}
         class="flex items-center justify-center rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 text-center font-semibold text-white transition duration-150 hover:text-indigo-950"
@@ -42,5 +45,17 @@ const { title, description, image, link } = Astro.props;
         Plus d'infos
       </a>
     </div>
+    {
+      background ? (
+        <div class="absolute inset-0 h-full w-full">
+          <Image
+            class="h-full w-full rounded-lg object-cover opacity-20"
+            src={background}
+            alt={title}
+            format="webp"
+          />
+        </div>
+      ) : null
+    }
   </div>
 </div>

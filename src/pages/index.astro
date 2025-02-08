@@ -8,6 +8,14 @@ import Card from "@components/Card.astro";
 import Sponsors from "@components/Sponsors.astro";
 
 import LOL from "@images/lol.png";
+import ROCKET_LEAGUE from "@images/rocket-league.png";
+import SSBU from "@images/ssbu-white.png";
+import MK8 from "@images/mk8.png";
+
+import LOL_BACKGROUND from "@images/lol.jpg";
+import ROCKET_LEAGUE_BACKGROUND from "@images/rocket-league.jpg";
+import SSBU_BACKGROUND from "@images/ssbu.jpg";
+import MK8_BACKGROUND from "@images/mk8.jpg";
 
 import Wavenet from "@images/sponsors/wavenet.png";
 import Weloveat from "@images/sponsors/weloveat.png";
@@ -23,20 +31,30 @@ const tournois = [
   {
     name: "League of Legends",
     image: LOL,
+    background: LOL_BACKGROUND,
     description:
       "Une draft en 5v5 à jusqu'à 16 équipes. Venez montrer vos talents sur la faille de l'invocateur !",
   },
   {
-    name: "???",
-    description: "...",
+    name: "Rocket League 2v2",
+    image: ROCKET_LEAGUE,
+    background: ROCKET_LEAGUE_BACKGROUND,
+    description:
+      "Un tournoi en 2v2 où coordination et technique seront essentielles ! Formez votre duo, dominez les airs et marquez des buts spectaculaires pour décrocher la victoire.",
   },
   {
-    name: "???",
-    description: "...",
+    name: "Super Smash Bros Ultimate",
+    image: SSBU,
+    background: SSBU_BACKGROUND,
+    description:
+      "Un tournoi en 1v1 où seul le meilleur combattant triomphera ! Choisissez votre personnage, enchaînez les combos et envoyez vos adversaires hors de l'arène.",
   },
   {
-    name: "???",
-    description: "...",
+    name: "Mario Kart 8",
+    image: MK8,
+    background: MK8_BACKGROUND,
+    description:
+      "Un tournoi en 1v12 où chaque course est une bataille acharnée ! Entre dérapages maîtrisés, objets imprévisibles et circuits dynamiques, seul le plus rusé franchira la ligne d'arrivée en tête.",
   },
 ];
 
@@ -169,6 +187,7 @@ const sponsors = [
               <Card
                 title={tournoi.name}
                 image={tournoi.image}
+                background={tournoi.background}
                 description={tournoi.description}
                 link="/tournois"
               />
