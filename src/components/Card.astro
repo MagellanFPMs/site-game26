@@ -39,7 +39,7 @@ const { title, description, image, link, background } = Astro.props;
         Réserve ta place !
       </a>
       <a
-        href={link}
+        href="https://www.facebook.com/events/2000290947160373"
         class="flex items-center justify-center rounded-lg border-2 border-orange-500 bg-indigo-950 px-4 py-2 text-center font-semibold text-white transition duration-150 hover:bg-opacity-20 hover:text-opacity-80"
       >
         Plus d'infos
@@ -49,7 +49,7 @@ const { title, description, image, link, background } = Astro.props;
       background ? (
         <div class="absolute inset-0 h-full w-full">
           <Image
-            class="h-full w-full rounded-lg object-cover opacity-20"
+            class="h-full w-full overflow-hidden object-cover opacity-20"
             src={background}
             alt={title}
             format="webp"

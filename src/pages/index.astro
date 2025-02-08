@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 
 import heroImage from "@images/heroImage.svg";
+import BANNER from "@images/website-banner.png";
 import logo from "@images/Logo_Game25_New_Colors.svg";
 import Card from "@components/Card.astro";
 import Sponsors from "@components/Sponsors.astro";
@@ -109,11 +110,13 @@ const sponsors = [
 
 <Layout title="Accueil">
   <main>
-    <section class="bg-gradient-to-br from-indigo-950 to-indigo-900 text-white">
+    <section
+      class="relative overflow-hidden bg-gradient-to-br from-indigo-950 to-indigo-900 text-white"
+    >
       <div
-        class="mx-auto grid p-4 lg:container sm:grid-cols-[1.2fr_minmax(0,1fr)]"
+        class="mx-auto grid p-4 pb-6 lg:container sm:grid-cols-[1.2fr_minmax(0,1fr)]"
       >
-        <div class="flex items-center py-6 text-lg xl:text-xl">
+        <div class="z-10 flex items-center py-6 text-lg xl:text-xl">
           <div>
             <h1
               class="pb-3 align-text-top text-4xl font-semibold xl:pb-4 xl:text-5xl"
@@ -130,11 +133,24 @@ const sponsors = [
           </div>
         </div>
         <Image
-          class="h-full w-full object-fill"
+          class="z-10 h-full w-full object-fill drop-shadow-lg"
           src={heroImage}
           alt={"Illustration d'une LAN Party - Game 25"}
           format="webp"
         />
+        {
+          BANNER ? (
+            <div class="absolute inset-0">
+              <Image
+                class="h-full w-full object-cover opacity-20"
+                src={BANNER}
+                alt="Game 25"
+                quality={30}
+                format="webp"
+              />
+            </div>
+          ) : null
+        }
       </div>
     </section>
     <section
@@ -160,10 +176,10 @@ const sponsors = [
         <p class="">
           Pour plus d'informations, rendez-vous sur la page{" "}
           <a
-            href="/informations"
+            href="https://www.facebook.com/events/2000290947160373"
             class="underline duration-150 hover:translate-x-2 hover:opacity-90"
           >
-            Informations</a
+            facebook de l'événement</a
           >
           .
         </p>
@@ -205,7 +221,7 @@ const sponsors = [
         </h2>
         <a
           class="inline-block rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 font-semibold text-white transition duration-150 hover:bg-blue-50 hover:text-indigo-950"
-          href="/devenir-sponsor">Devenir sponsor</a
+          href="mailto:fpms.magellan@umons.ac.be">Devenir sponsor</a
         >
       </div>
       <!-- <Sponsors sponsors={sponsors} /> -->
