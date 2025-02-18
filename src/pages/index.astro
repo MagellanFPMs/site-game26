@@ -65,6 +65,24 @@ const tournois = [
 
 const sponsors = [
   {
+    name: "Noctua",
+    url: "https://noctua.at/fr/",
+    image: Noctua,
+  },
+  {
+    name: "Just One Byte",
+    url: "https://j1b.be/",
+    image: JustOneByte,
+  },
+  {
+    name: "ORE",
+    url: "https://www.facebook.com/ORE.UMONS/",
+    image: ORE,
+  },
+];
+
+const oldSponsors = [
+  {
     name: "Wavenet",
     url: "https://wavenet.be/",
     image: Wavenet,
@@ -130,6 +148,7 @@ const sponsors = [
             <p class="pb-4 xl:pb-6">Envie d'y participer ?</p>
             <a
               href="https://www.facebook.com/events/2000290947160373"
+              target="_blank"
               class="inline-block rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 font-semibold text-white transition duration-150 hover:bg-blue-50 hover:text-indigo-950"
             >
               Inscris-toi !
@@ -158,7 +177,7 @@ const sponsors = [
       </div>
     </section>
     <section
-      class="mx-auto grid grid-cols-[1fr_auto] items-center gap-4 px-4 py-10 lg:container"
+      class="mx-auto grid grid-rows-2 items-center gap-4 px-4 py-10 lg:container sm:grid-cols-[1fr_auto] sm:grid-rows-1"
     >
       <div class="space-y-1">
         <h2 class="pb-2 text-4xl font-semibold">Le Game 25</h2>
@@ -188,7 +207,7 @@ const sponsors = [
         </p>
       </div>
       <Image
-        class="max-w-64"
+        class="mx-auto max-w-64"
         src={logo}
         alt="Game 25"
         quality={30}
@@ -222,12 +241,13 @@ const sponsors = [
         <h2 id="sponsors" class="text-4xl font-semibold">
           Merci à nos sponsors !
         </h2>
+        <Sponsors sponsors={sponsors} />
+
         <a
           class="inline-block rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 font-semibold text-white transition duration-150 hover:bg-blue-50 hover:text-indigo-950"
           href="mailto:fpms.magellan@umons.ac.be">Devenir sponsor</a
         >
       </div>
-      <!-- <Sponsors sponsors={sponsors} /> -->
     </section>
   </main>
 </Layout>
